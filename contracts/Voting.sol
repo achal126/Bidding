@@ -1,5 +1,12 @@
+pragma solidity ^0.4.19;
+
+import './ERC223.sol';
+import './SafeMath.sol';
+import './Token.sol';
+
 contract Voting{
-	//contract for bidding
+    
+    ERC223Token public token;
 	struct Bidding{
 	// structure of the bidding
 	uint deadLine; // denotes the end time for the auction.
@@ -8,6 +15,8 @@ contract Voting{
 	uint lowestBid; // the current amount for the lowest Bid
 	address Sender; // the person who will receive money for the lowest bid.
 	}
+	
+	
 
 	mapping (uint=>Bidding) BidMap; // A hashmap for BidId to the Bidding Structure.
 	uint myGlobalCounter; //keeps count for the number of Bidding Contracts.
@@ -30,12 +39,12 @@ contract Voting{
 
 	function BidEnd(uint BiddingID, bytes32 key) returns (address lowestBidder){
 	Bidding B = BidMap[BiddingID];
-	if (block.number>=B.deadLine && keccak256(key)==B.bidHash){
-	B.Sender=B.lowestBidder;
-	B.Sender.send(B.lowestBid);
+	if (block.number>=B.deadLine && token.balanceOf(B.Sender)>=B.lowestBid ){
+	token.transfer(B.lowestBidder,B.lowestBid);
 	clean(BiddingID);
 	}
 	}
+	
 
 	function clean(uint BiddingID) {
 	Bidding B = BidMap[BiddingID];

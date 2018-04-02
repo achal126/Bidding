@@ -1,15 +1,14 @@
+import "../stylesheets/app.css";
 import { default as Web3} from 'web3';
 import { default as contract } from 'truffle-contract';
-
 import voting_artifacts from '../../build/contracts/Voting.json'
-
 var Voting = contract(voting_artifacts);
 
 window.startBidding = function() {
   let timeLimit=$("#timeLimit").val();
   $("#msg").html("The contarct is being deployed")
   $("#timeLimit").val("");
-  Voting.deployed().then(function(contractInstance) {contractInstance.startBidding(timeLimit).then(function(v) {console.log(v)})});
+  Voting.deployed().then(function(contractInstance) {return contractInstance.startBidding(timeLimit, {from:web3.eth.accounts[0]})});
 }
 
 window.Bid = function() {
@@ -17,10 +16,8 @@ window.Bid = function() {
   let BidHash=$("#BidHash").val();
   let BidAmount=$("#BidAmount").val();
   $("#msg").html("The Bid is being deployed")
-  $("#timeLimit").val("");
-  Voting.deployed().then(function(contractInstance) {contractInstance.Bid(BiddingID,BidHash, BidAmount).then(function(v) {console.log(v)})});
+Voting.deployed().then(function(contractInstance) {return contractInstance.Bid(BiddingID,BidHash,BidAmount,{from:web3.eth.accounts[0]})});
 }
-
 $( document ).ready(function() {
   if (typeof web3 !== 'undefined') {
     console.warn("Using web3 detected from external source like Metamask")
@@ -33,7 +30,7 @@ $( document ).ready(function() {
   }
 
   Voting.setProvider(web3.currentProvider);
-  console.log(BiddingID);
+
 });
 
-Voting.deployed().then(function(contractInstance){contractInstance.Bid(1,'0x1dac30c17fbfbe0c09285635b1c43ba526b65ed8')});
+
