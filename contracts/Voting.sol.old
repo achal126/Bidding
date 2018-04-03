@@ -18,14 +18,13 @@ contract Voting{
 	
 	
 
-	mapping (uint=>Bidding) public BidMap; // A hashmap for BidId to the Bidding Structure.
+	mapping (uint=>Bidding) BidMap; // A hashmap for BidId to the Bidding Structure.
 	uint public myGlobalCounter; //keeps count for the number of Bidding Contracts.
 
 	function startBidding(uint timeLimit) returns (uint BiddingID){
 	BiddingID= myGlobalCounter++;
 	BidMap[BiddingID].deadLine=block.number+timeLimit;
 	BidMap[BiddingID].Sender=msg.sender;
-	BidMap[BiddingID].lowestBid=100000;
 	}
 
 	function Bid(uint BiddingID, bytes32 BidderHash, uint BidAmount) returns (address lowestBidder){
@@ -36,18 +35,14 @@ contract Voting{
 	B.lowestBidder=msg.sender;
 	B.lowestBid= BidAmount;
 	B.bidHash= BidderHash;
-	return B.lowestBidder;
 	}
 
 	function BidEnd(uint BiddingID, bytes32 key) returns (address lowestBidder){
 	Bidding B = BidMap[BiddingID];
-	return B.lowestBidder;
-	//if (block.number>=B.deadLine && token.balanceOf(B.Sender)>=B.lowestBid ){
-	//token.transfer(B.lowestBidder,B.lowestBid);
-	//CF.pay(B.lowestBidder,B.lowestBid);
-	//return B.lowestBidder;
-	//clean(BiddingID);
-	//}
+	if (block.number>=B.deadLine && token.balanceOf(B.Sender)>=B.lowestBid ){
+	token.transfer(B.lowestBidder,B.lowestBid);
+	clean(BiddingID);
+	}
 	}
 	
 

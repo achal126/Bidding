@@ -9,16 +9,7 @@ window.startBidding = function() {
   $("#msg").html("The contarct is being deployed")
   $("#timeLimit").val("");
   Voting.deployed().then(function(contractInstance) {return contractInstance.startBidding(timeLimit, {from:web3.eth.accounts[0]})});
-TotalNumberOfContracts();
 }
-
-function TotalNumberOfContracts() {
-  Voting.deployed().then(function(contractInstance) {return contractInstance.myGlobalCounter()}).then(function(v) {
-      $("#GlobalCounter").html(v.toString());
-    });
-};
-
- 
 
 window.Bid = function() {
   let BiddingID=$("#BiddingID").val();
@@ -27,19 +18,6 @@ window.Bid = function() {
   $("#msg").html("The Bid is being deployed")
 Voting.deployed().then(function(contractInstance) {return contractInstance.Bid(BiddingID,BidHash,BidAmount,{from:web3.eth.accounts[0]})});
 }
-
-window.BidInfo = function() {
-  let BidID = $("#BidID").val();
-  BidInformation(BidID);
-}
-
-function BidInformation(BidID) {
-  Voting.deployed().then(function(contractInstance) {return contractInstance.BidMap(BidID)}).then(function(v) {
-      $("#BidIDInformation").html(v.toString());
-    });
-  };
-
-
 $( document ).ready(function() {
   if (typeof web3 !== 'undefined') {
     console.warn("Using web3 detected from external source like Metamask")
@@ -54,7 +32,5 @@ $( document ).ready(function() {
   Voting.setProvider(web3.currentProvider);
 
 });
-
-
 
 

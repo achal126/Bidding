@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bidding Page</title>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-<style>.margin-top-3 {	margin-top: 3em;	
-}
-</style>
+  <title>Bidding Page</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+  <style>
+    .margin-top-3 {
+      margin-top: 3em;
+    }
+  </style>
 </head>
-<body class="container-fluid">
-<h1>Deploy a Bidding Contract</h1>
+<body class="container">
+  <h1>Deploy a Bidding Contract</h1>
     <div class="container-fluid">
       <h2>Deploy a Contract</h2>
       <div id="msg"></div>
@@ -18,25 +20,27 @@
       <br>
       <a href="#" onclick="startBidding(timeLimit)" class="btn btn-primary">Deploy</a>
     </div>
+</body>
 
-<div class="container-fluid">
-<h1>Total Contracts Deployed</h1>
-<div class="col-sm-4">
-<div class="row">
-	<h2>Number of Contracts Deployed</h2>
-	<div class="table-responsive">
-		<table class="table table-bordered">
-			<tr>
-				<td>Total Contracts Deployed</td>
-				<td id="GlobalCounter"/>
-			</tr>
-		</table>
-	</div>
-</div>
-</div>
+<div class="container">
+  <h1>Total Contracts Deployed</h1>
+  <div class="col-sm-offset-1 col-sm-4 margin-top-3">
+    <div class="row">
+      <h2>Number of Contracts Deployed</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <td>Total Contracts Deployed</td>
+            <td id="GlobalCounter"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    </div>
+
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <h1>Get information about a bid</h1>
     <div class="container-fluid">
       <h2>Bid Information</h2>
@@ -45,10 +49,12 @@
       <a href="#" onclick="BidInfo(BidID)" class="btn btn-primary">GetBidInformation</a>
     </div>
   </div>
+  </div>
+</div>
 
-<div class="container-fluid">
+<div class="container">
   <h1>Bid Information</h1>
-  <div class="col-sm-4">
+  <div class="col-sm-offset-1 col-sm-4 margin-top-3">
     <div class="row">
       <h2>BiddingStats</h2>
       <div class="table-responsive">
@@ -63,7 +69,7 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <h1>Bid Using Bidding ID and BID HASH</h1>
     <div class="container-fluid">
       <h2>Bidding</h2>
@@ -76,8 +82,9 @@
       <a href="#" onclick="Bid(BiddingID,BidHash,BidAmount)" class="btn btn-primary">Bid</a>
     </div>
   </div>
+  </div>
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
 <script src="app.js"></script>
-</body>
 </html>

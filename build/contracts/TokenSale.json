@@ -410,7 +410,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 652,
+                        "referencedDeclaration": 636,
                         "src": "408:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -571,7 +571,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 671,
+                          "referencedDeclaration": 655,
                           "src": "542:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_TokenSale_$445",
@@ -852,7 +852,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 652,
+                          "referencedDeclaration": 636,
                           "src": "644:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1094,7 +1094,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 652,
+                          "referencedDeclaration": 636,
                           "src": "794:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1613,7 +1613,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 652,
+                        "referencedDeclaration": 636,
                         "src": "408:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1774,7 +1774,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 671,
+                          "referencedDeclaration": 655,
                           "src": "542:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_TokenSale_$445",
@@ -2055,7 +2055,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 652,
+                          "referencedDeclaration": 636,
                           "src": "644:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2297,7 +2297,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 652,
+                          "referencedDeclaration": 636,
                           "src": "794:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -2569,5 +2569,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-01T21:01:51.524Z"
+  "updatedAt": "2018-04-03T15:20:55.210Z"
 }
